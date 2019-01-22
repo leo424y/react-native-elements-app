@@ -65,12 +65,12 @@ export default class LoginScreen1 extends Component {
             <View style={styles.loginView}>
               <View style={styles.loginTitle}>
                 <View style={{ flexDirection: 'row' }}>
-                  <Text style={styles.travelText}>TRAVEL</Text>
-                  <Text style={styles.plusText}>+</Text>
+                  <Text style={styles.travelText}>登入</Text>
+                  {/* <Text style={styles.plusText}>+</Text> */}
                 </View>
-                <View style={{ marginTop: -10 }}>
+                {/* <View style={{ marginTop: -10 }}>
                   <Text style={styles.travelText}>LEISURE</Text>
-                </View>
+                </View> */}
               </View>
               <View style={styles.loginInput}>
                 <Input
@@ -129,7 +129,7 @@ export default class LoginScreen1 extends Component {
                 />
               </View>
               <Button
-                title="LOG IN"
+                title="確定"
                 activeOpacity={1}
                 underlayColor="transparent"
                 onPress={this.submitLoginCredentials.bind(this)}
@@ -148,15 +148,15 @@ export default class LoginScreen1 extends Component {
                 titleStyle={{ fontWeight: 'bold', color: 'white' }}
               />
               <View style={styles.footerView}>
-                <Text style={{ color: 'grey' }}>New here?</Text>
-                <Button
+                {/* <Text style={{ color: 'grey' }}>New here?</Text> */}
+                {/* <Button
                   title="Create an Account"
                   clear
                   activeOpacity={0.5}
                   titleStyle={{ color: 'white', fontSize: 15 }}
                   containerStyle={{ marginTop: -10 }}
                   onPress={() => console.log('Account created')}
-                />
+                /> */}
               </View>
             </View>
           ) : (

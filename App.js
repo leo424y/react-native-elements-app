@@ -16,7 +16,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const CustomDrawerContentComponent = props => (
   <View style={{ flex: 1, backgroundColor: '#43484d' }}>
-    <View
+    {/* <View
       style={{ marginTop: 40, justifyContent: 'center', alignItems: 'center' }}
     >
       <Image
@@ -24,8 +24,8 @@ const CustomDrawerContentComponent = props => (
         style={{ width: SCREEN_WIDTH * 0.57 }}
         resizeMode="contain"
       />
-    </View>
-    <View style={{ marginLeft: 10 }}>
+    </View> */}
+    <View style={{ marginTop: 40, marginLeft: 10 }}>
       <DrawerItems {...props} />
     </View>
   </View>
@@ -63,7 +63,8 @@ const MainRoot = DrawerNavigator(
     },
   },
   {
-    initialRouteName: 'Components',
+    // initialRouteName: 'Components',
+    initialRouteName: 'Lists',
     contentOptions: {
       activeTintColor: '#548ff7',
       activeBackgroundColor: 'transparent',
