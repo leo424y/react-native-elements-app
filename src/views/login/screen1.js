@@ -14,7 +14,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
-const BG_IMAGE = require('../../../assets/images/bg_screen1.jpg');
+// const BG_IMAGE = require('../../../assets/images/bg_screen1.jpg');
 
 export default class LoginScreen1 extends Component {
   constructor(props) {
@@ -60,7 +60,8 @@ export default class LoginScreen1 extends Component {
 
     return (
       <View style={styles.container}>
-        <ImageBackground source={BG_IMAGE} style={styles.bgImage}>
+        <ImageBackground style={styles.bgImage}>
+        {/*  source={BG_IMAGE}  */}
           {this.state.fontLoaded ? (
             <View style={styles.loginView}>
               <View style={styles.loginTitle}>

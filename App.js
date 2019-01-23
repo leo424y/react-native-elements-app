@@ -4,13 +4,13 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { View, Image, Dimensions } from 'react-native';
 import { DrawerNavigator, DrawerItems } from 'react-navigation';
 
-import Components from './src/drawer/components';
-import Ratings from './src/drawer/ratings';
-import Pricing from './src/drawer/pricing';
 import Login from './src/drawer/login';
-import Profile from './src/drawer/profile';
 import Lists from './src/drawer/lists';
-import Settings from './src/drawer/settings';
+// import Components from './src/drawer/components';
+// import Ratings from './src/drawer/ratings';
+// import Pricing from './src/drawer/pricing';
+// import Profile from './src/drawer/profile';
+// import Settings from './src/drawer/settings';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -37,30 +37,30 @@ const MainRoot = DrawerNavigator(
       path: '/login',
       screen: Login,
     },
-    Profile: {
-      path: '/profile',
-      screen: Profile,
-    },
     Lists: {
       path: '/lists',
       screen: Lists,
-    },
-    Components: {
-      path: '/components',
-      screen: Components,
-    },
-    Ratings: {
-      path: '/ratings',
-      screen: Ratings,
-    },
-    Pricing: {
-      path: '/pricing',
-      screen: Pricing,
-    },
-    Settings: {
-      path: '/settings',
-      screen: Settings,
-    },
+    },    
+    // Profile: {
+    //   path: '/profile',
+    //   screen: Profile,
+    // },
+    // Components: {
+    //   path: '/components',
+    //   screen: Components,
+    // },
+    // Ratings: {
+    //   path: '/ratings',
+    //   screen: Ratings,
+    // },
+    // Pricing: {
+    //   path: '/pricing',
+    //   screen: Pricing,
+    // },
+    // Settings: {
+    //   path: '/settings',
+    //   screen: Settings,
+    // },
   },
   {
     // initialRouteName: 'Components',
@@ -75,7 +75,7 @@ const MainRoot = DrawerNavigator(
         marginLeft: 0,
       },
     },
-    drawerWidth: SCREEN_WIDTH * 0.8,
+    drawerWidth: SCREEN_WIDTH * 0.4,
     contentComponent: CustomDrawerContentComponent,
     drawerOpenRoute: 'DrawerOpen',
     drawerCloseRoute: 'DrawerClose',
