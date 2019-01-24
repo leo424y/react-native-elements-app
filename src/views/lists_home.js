@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet, Image, ListView, Alert } from 'react-native';
+import { View, ScrollView, StyleSheet, Image, ListView, Alert, AlertIOS } from 'react-native';
 
 import {
   Text,
@@ -123,7 +123,12 @@ class Icons extends Component {
           {phone_lists.map((l, i) => (
             <ListItem
               key={i}
-              onPress={()=>alert('請先輸入讀取碼')}
+              // onPress={()=>alert('請先輸入讀取碼')}
+              onPress={()=>AlertIOS.prompt(
+                '請輸入讀取碼',
+                null,
+                text => console.log("You entered "+text)
+              )}
               title={l.name}
               subtitle={l.subtitle}
               chevron
