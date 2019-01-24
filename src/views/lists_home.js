@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet, Image, ListView } from 'react-native';
+import { View, ScrollView, StyleSheet, Image, ListView, Alert } from 'react-native';
 
 import {
   Text,
@@ -113,9 +113,7 @@ class Icons extends Component {
 
   render() {
     const { navigation } = this.props;
-    const buttons = ['Button1', 'Button2'];
     const { selectedIndex } = this.state;
-
     return (
       <ScrollView>
         <View style={styles.headerContainer}>
@@ -125,7 +123,7 @@ class Icons extends Component {
           {phone_lists.map((l, i) => (
             <ListItem
               key={i}
-              onPress={log}
+              onPress={()=>alert('請先輸入讀取碼')}
               title={l.name}
               subtitle={l.subtitle}
               chevron
