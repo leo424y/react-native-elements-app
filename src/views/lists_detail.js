@@ -68,7 +68,7 @@ class Icons extends Component {
         </View>  
         <Card containerStyle={{ marginTop: 20, marginBottom: 20}}>
           <Tile
-            title=""
+            title="這是內容；這是內容；這是內容；這是內容；這是內容；這是內容；這是內容；這是內容；"
             titleStyle={{ fontSize: 18 }}
             width={310}
           />
