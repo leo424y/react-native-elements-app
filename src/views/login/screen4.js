@@ -13,7 +13,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 // const BG_IMAGE = require('../../../assets/images/bg_screen4.jpg');
-
+//Yo
 export default class LoginScreen2 extends Component {
   render() {
     return (
