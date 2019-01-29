@@ -13,7 +13,9 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 // const BG_IMAGE = require('../../../assets/images/bg_screen4.jpg');
-//Yo
+
+var keypair = require('keypair');
+
 export default class LoginScreen2 extends Component {
   render() {
     return (
@@ -23,6 +25,7 @@ export default class LoginScreen2 extends Component {
           <Text style={styles.loginText}>啟動碼</Text>
           <Text style={styles.travelText}>34393adfjJdi3jk9f</Text>
           <Button
+                onPress={() => {console.log(keypair())}}
                 title="通知啟動"
                 activeOpacity={1}
                 underlayColor="transparent"
