@@ -118,6 +118,7 @@ class Icons extends Component {
       <ScrollView>
         <View style={styles.headerContainer}>
           <Text style={styles.heading}>總覽</Text>
+          <Text style={styles.setting}>⚙</Text>                    
         </View>
         <View style={styles.list}>
           {phone_lists.map((l, i) => (

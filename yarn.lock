@@ -2743,6 +2743,10 @@ jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
 
+keypair@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/keypair/-/keypair-1.0.1.tgz#7603719270afb6564ed38a22087a06fc9aa4ea1b"
+
 kind-of@^1.1.0:
   version "1.1.0"
   resolved "http://registry.npmjs.org/kind-of/-/kind-of-1.1.0.tgz#140a3d2d41a36d2efcfa9377b62c24f8495a5c44"
@@ -3787,7 +3791,7 @@ react-native-gesture-handler@1.0.9:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
-"react-native-maps@github:expo/react-native-maps#v0.22.1-exp.0":
+react-native-maps@expo/react-native-maps#v0.22.1-exp.0:
   version "0.22.1"
   resolved "https://codeload.github.com/expo/react-native-maps/tar.gz/e6f98ff7272e5d0a7fe974a41f28593af2d77bb2"
 
@@ -3817,6 +3821,10 @@ react-native-safe-module@^1.1.0:
 react-native-screens@1.0.0-alpha.15:
   version "1.0.0-alpha.15"
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-1.0.0-alpha.15.tgz#5b5a0041310b46f12048fda1908d52e7290ec18f"
+
+react-native-storage@^1.0.0-beta.0:
+  version "1.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/react-native-storage/-/react-native-storage-1.0.0-beta.1.tgz#12acc0450e63a65ac95430196c04270edcf7b0be"
 
 react-native-svg@8.0.8:
   version "8.0.8"
