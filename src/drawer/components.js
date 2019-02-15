@@ -6,6 +6,8 @@ import ButtonsTab from '../tabs/buttons';
 import ListsTab from '../tabs/lists';
 import InputTab from '../tabs/input';
 import FontsTab from '../tabs/fonts';
+import SettingsTab from '../tabs/settings';
+
 
 const Components = TabNavigator(
   {
@@ -54,6 +56,21 @@ const Components = TabNavigator(
       path: '/fonts',
       navigationOptions: {
         tabBarLabel: 'Fonts',
+        tabBarIcon: ({ tintColor, focused }) => (
+          <Icon
+            name={focused ? 'font' : 'font'}
+            size={30}
+            type="font-awesome"
+            color={tintColor}
+          />
+        ),
+      },
+    },
+    SettingsTab: {
+      screen: SettingsTab,
+      path: '/fonts',
+      navigationOptions: {
+        tabBarLabel: 'Settings',
         tabBarIcon: ({ tintColor, focused }) => (
           <Icon
             name={focused ? 'font' : 'font'}

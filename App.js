@@ -6,7 +6,7 @@ import { DrawerNavigator, DrawerItems } from 'react-navigation';
 
 import Login from './src/drawer/login';
 import Lists from './src/drawer/lists';
-// import Components from './src/drawer/components';
+import Components from './src/drawer/components';
 // import Ratings from './src/drawer/ratings';
 // import Pricing from './src/drawer/pricing';
 // import Profile from './src/drawer/profile';
@@ -45,10 +45,10 @@ const MainRoot = DrawerNavigator(
     //   path: '/profile',
     //   screen: Profile,
     // },
-    // Components: {
-    //   path: '/components',
-    //   screen: Components,
-    // },
+    Components: {
+      path: '/components',
+      screen: Components,
+    },
     // Ratings: {
     //   path: '/ratings',
     //   screen: Ratings,
@@ -63,8 +63,8 @@ const MainRoot = DrawerNavigator(
     // },
   },
   {
-    // initialRouteName: 'Components',
-    initialRouteName: 'Lists',
+    initialRouteName: 'Components',
+    // initialRouteName: 'Lists',
     contentOptions: {
       activeTintColor: '#548ff7',
       activeBackgroundColor: 'transparent',
@@ -75,7 +75,7 @@ const MainRoot = DrawerNavigator(
         marginLeft: 0,
       },
     },
-    drawerWidth: SCREEN_WIDTH * 0.4,
+    drawerWidth: SCREEN_WIDTH * 0.5,
     contentComponent: CustomDrawerContentComponent,
     drawerOpenRoute: 'DrawerOpen',
     drawerCloseRoute: 'DrawerClose',
