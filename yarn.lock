@@ -1579,6 +1579,11 @@ cross-spawn@^6.0.5:
     shebang-command "^1.2.0"
     which "^1.2.9"
 
+crypto-js@^3.1.9-1:
+  version "3.1.9-1"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.9-1.tgz#fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8"
+  integrity sha1-/aGedh/Ad+Af+/3G6f38WeiAbNg=
+
 debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3, debug@^2.6.8, debug@^2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -1898,6 +1903,13 @@ expo-image-loader-interface@~1.1.0:
   resolved "https://registry.yarnpkg.com/expo-image-loader-interface/-/expo-image-loader-interface-1.1.0.tgz#f3fb98bb238db797562a0d3f2f156c32745d2bd1"
   dependencies:
     expo-core "~1.2.0"
+
+expo-jwt@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/expo-jwt/-/expo-jwt-1.1.1.tgz#cba0f290de2f35e6d156bd094a645e6666959ae1"
+  integrity sha512-yycxuDMVNtgoRVSp9mxy7FGtUA34cc1cTDop6nABziESXHvuvOVGOpwSI8XrxjAVFfkNjhoNj4IltqhqjeDOUg==
+  dependencies:
+    crypto-js "^3.1.9-1"
 
 expo-local-authentication@~1.1.0:
   version "1.1.0"
