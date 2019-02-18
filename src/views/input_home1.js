@@ -20,6 +20,83 @@ class InputHome extends Component {
   render() {
     return (
       <ScrollView style={styles.container} keyboardShouldPersistTaps="handled">
+        <View style={styles.headerContainer}>
+          <Icon color="white" name="search" size={62} />
+          <Text style={styles.heading}>Search Bars</Text>
+        </View>
+        <SearchBar
+          placeholder="iOS searchbar"
+          platform="ios"
+          {...dummySearchBarProps}
+        />
+        <SearchBar
+          placeholder="Android searchbar"
+          platform="android"
+          {...dummySearchBarProps}
+        />
+        <SearchBar placeholder="Default searchbar" {...dummySearchBarProps} />
+        <View
+          style={[
+            styles.headerContainer,
+            { backgroundColor: '#616389', marginTop: 20 },
+          ]}
+        >
+          <Icon color="white" name="input" size={62} />
+          <Text style={styles.heading}>Inputs</Text>
+        </View>
+        <View style={{ alignItems: 'center', marginBottom: 16 }}>
+          <Input
+            containerStyle={{ width: '90%' }}
+            placeholder="Input with label"
+            label="LABEL"
+            labelStyle={{ marginTop: 16 }}
+          />
+          <Input
+            containerStyle={styles.inputContainerStyle}
+            placeholder="Simple input"
+          />
+          <Input
+            leftIcon={
+              <Icon
+                name="map-marker"
+                type="font-awesome"
+                color="#86939e"
+                size={25}
+              />
+            }
+            containerStyle={styles.inputContainerStyle}
+            placeholder="Input with left icon"
+          />
+          <Input
+            rightIcon={
+              <Icon
+                name="chevron-right"
+                type="entypo"
+                color="#86939e"
+                size={25}
+              />
+            }
+            containerStyle={styles.inputContainerStyle}
+            placeholder="Input with right icon"
+          />
+          <Input
+            containerStyle={styles.inputContainerStyle}
+            placeholder="Input with error message"
+            errorMessage="Invalid input"
+          />
+          <Input
+            containerStyle={[styles.inputContainerStyle]}
+            placeholder="Shake input"
+            ref={ref => (this.shakeInput = ref)}
+            rightIcon={
+              <Button
+                title="Shake"
+                onPress={() => this.shakeInput && this.shakeInput.shake()}
+              />
+            }
+            errorMessage="Shake me on error !"
+          />
+        </View>
         <View style={styles.contentView}>
           <View
             style={{
@@ -37,7 +114,7 @@ class InputHome extends Component {
                 color: 'white',
               }}
             >
-              
+              Login
             </Text>
             <View style={styles.overlay}>
               <View style={styles.triangleLeft} />
@@ -53,7 +130,7 @@ class InputHome extends Component {
                 leftIcon={
                   <MaterialIcon name="email-outline" color="black" size={25} />
                 }
-                placeholder="帳號"
+                placeholder="Email"
                 placeholderTextColor="black"
                 autoCapitalize="none"
                 autoCorrect={false}
@@ -80,7 +157,7 @@ class InputHome extends Component {
                   backgroundColor: 'white',
                 }}
                 leftIcon={<SimpleIcon name="lock" color="black" size={25} />}
-                placeholder="密碼"
+                placeholder="Password"
                 placeholderTextColor="black"
                 autoCapitalize="none"
                 keyboardAppearance="light"
@@ -93,12 +170,6 @@ class InputHome extends Component {
               />
               <View style={styles.triangleRight} />
             </View>
-            <Button
-              title="確定"
-              style={{
-                marginVertical: 30,
-              }}
-            />
           </View>
         </View>
       </ScrollView>

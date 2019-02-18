@@ -19,7 +19,7 @@ const ListsTab = StackNavigator({
     screen: ListsTabView,
     path: '/',
     navigationOptions: ({ navigation }) => ({
-      title: 'Lists',
+      title: '總覽',
       headerLeft: (
         <Icon
           name="menu"

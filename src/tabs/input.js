@@ -20,7 +20,7 @@ const InputTab = StackNavigator({
     screen: InputTabView,
     path: '/',
     navigationOptions: ({ navigation }) => ({
-      title: 'Input',
+      title: '登入',
       headerLeft: (
         <Icon
           name="menu"

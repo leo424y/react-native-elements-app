@@ -33,14 +33,14 @@ const CustomDrawerContentComponent = props => (
 
 const MainRoot = DrawerNavigator(
   {
-    Login: {
-      path: '/login',
-      screen: Login,
-    },
-    Lists: {
-      path: '/lists',
-      screen: Lists,
-    },    
+    // Login: {
+    //   path: '/login',
+    //   screen: Login,
+    // },
+    // Lists: {
+    //   path: '/lists',
+    //   screen: Lists,
+    // },    
     // Profile: {
     //   path: '/profile',
     //   screen: Profile,

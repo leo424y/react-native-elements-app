@@ -116,10 +116,9 @@ class Icons extends Component {
     const { selectedIndex } = this.state;
     return (
       <ScrollView>
-        <View style={styles.headerContainer}>
+        {/* <View style={styles.headerContainer}>
           <Text style={styles.heading}>總覽</Text>
-          <Text style={styles.setting}>⚙</Text>                    
-        </View>
+        </View> */}
         <View style={styles.list}>
           {phone_lists.map((l, i) => (
             <ListItem

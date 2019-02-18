@@ -3,10 +3,10 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 
-import Settings from '../views/settings';
+import Settings from '../views/settings-4-code';
 
 const SettingsTabView = ({ navigation }) => (
-  <Settings banner="Settings" navigation={navigation} />
+  <Settings banner="讀取碼" navigation={navigation} />
 );
 
 const SettingsTab = StackNavigator({
@@ -14,7 +14,7 @@ const SettingsTab = StackNavigator({
     screen: SettingsTabView,
     path: '/',
     navigationOptions: ({ navigation }) => ({
-      title: 'Fonts',
+      title: '讀取碼',
       headerLeft: (
         <Icon
           name="menu"

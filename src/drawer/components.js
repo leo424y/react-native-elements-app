@@ -11,26 +11,26 @@ import SettingsTab from '../tabs/settings';
 
 const Components = TabNavigator(
   {
-    ButtonsTab: {
-      screen: ButtonsTab,
-      path: '/buttons',
-      navigationOptions: {
-        tabBarLabel: 'Buttons',
-        tabBarIcon: ({ tintColor, focused }) => (
-          <Icon
-            name={focused ? 'emoticon-cool' : 'emoticon-neutral'}
-            size={30}
-            type="material-community"
-            color={tintColor}
-          />
-        ),
-      },
-    },
+    // ButtonsTab: {
+    //   screen: ButtonsTab,
+    //   path: '/buttons',
+    //   navigationOptions: {
+    //     tabBarLabel: 'Buttons',
+    //     tabBarIcon: ({ tintColor, focused }) => (
+    //       <Icon
+    //         name={focused ? 'emoticon-cool' : 'emoticon-neutral'}
+    //         size={30}
+    //         type="material-community"
+    //         color={tintColor}
+    //       />
+    //     ),
+    //   },
+    // },
     ListsTab: {
       screen: ListsTab,
       path: '/lists',
       navigationOptions: {
-        tabBarLabel: 'Lists',
+        tabBarLabel: '總覽',
         tabBarIcon: ({ tintColor, focused }) => (
           <Icon name="list" size={30} type="entypo" color={tintColor} />
         ),
@@ -40,7 +40,7 @@ const Components = TabNavigator(
       screen: InputTab,
       path: '/input',
       navigationOptions: {
-        tabBarLabel: 'Input',
+        tabBarLabel: '登入',
         tabBarIcon: ({ tintColor, focused }) => (
           <Icon
             name="wpforms"
@@ -51,26 +51,26 @@ const Components = TabNavigator(
         ),
       },
     },
-    FontsTab: {
-      screen: FontsTab,
-      path: '/fonts',
-      navigationOptions: {
-        tabBarLabel: 'Fonts',
-        tabBarIcon: ({ tintColor, focused }) => (
-          <Icon
-            name={focused ? 'font' : 'font'}
-            size={30}
-            type="font-awesome"
-            color={tintColor}
-          />
-        ),
-      },
-    },
+    // FontsTab: {
+    //   screen: FontsTab,
+    //   path: '/fonts',
+    //   navigationOptions: {
+    //     tabBarLabel: 'Fonts',
+    //     tabBarIcon: ({ tintColor, focused }) => (
+    //       <Icon
+    //         name={focused ? 'font' : 'font'}
+    //         size={30}
+    //         type="font-awesome"
+    //         color={tintColor}
+    //       />
+    //     ),
+    //   },
+    // },
     SettingsTab: {
       screen: SettingsTab,
       path: '/fonts',
       navigationOptions: {
-        tabBarLabel: 'Settings',
+        tabBarLabel: '讀取碼',
         tabBarIcon: ({ tintColor, focused }) => (
           <Icon
             name={focused ? 'font' : 'font'}
@@ -83,7 +83,7 @@ const Components = TabNavigator(
     },
   },
   {
-    initialRouteName: 'ButtonsTab',
+    initialRouteName: 'ListsTab',
     animationEnabled: false,
     swipeEnabled: true,
     // Android's default option displays tabBars on top, but iOS is bottom
@@ -97,7 +97,7 @@ const Components = TabNavigator(
 );
 
 Components.navigationOptions = {
-  drawerLabel: 'Components',
+  drawerLabel: '首頁',
   drawerIcon: ({ tintColor }) => (
     <Icon
       name="settings"
