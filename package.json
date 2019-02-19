@@ -7,6 +7,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
     "@expo/vector-icons": "6.3.0",
+    "axios": "^0.18.0",
     "expo": "^31.0.2",
     "expo-jwt": "^1.1.1",
     "keypair": "^1.0.1",
