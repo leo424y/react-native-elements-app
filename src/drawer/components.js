@@ -4,6 +4,7 @@ import { Icon } from 'react-native-elements';
 
 import ButtonsTab from '../tabs/buttons';
 import ListsTab from '../tabs/lists';
+import List1Tab from '../tabs/list1';
 import InputTab from '../tabs/input';
 import FontsTab from '../tabs/fonts';
 import SettingsTab from '../tabs/settings';
@@ -31,6 +32,16 @@ const Components = TabNavigator(
       path: '/lists',
       navigationOptions: {
         tabBarLabel: '總覽',
+        tabBarIcon: ({ tintColor, focused }) => (
+          <Icon name="list" size={30} type="entypo" color={tintColor} />
+        ),
+      },
+    },
+    List1Tab: {
+      screen: List1Tab,
+      path: '/list1',
+      navigationOptions: {
+        tabBarLabel: '詳情',
         tabBarIcon: ({ tintColor, focused }) => (
           <Icon name="list" size={30} type="entypo" color={tintColor} />
         ),

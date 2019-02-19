@@ -15,15 +15,15 @@ const SettingsTab = StackNavigator({
     path: '/',
     navigationOptions: ({ navigation }) => ({
       title: '讀取碼',
-      headerLeft: (
-        <Icon
-          name="menu"
-          size={30}
-          type="entypo"
-          containerStyle={{ marginLeft: 10 }}
-          onPress={() => navigation.navigate('DrawerOpen')}
-        />
-      ),
+      // headerLeft: (
+      //   <Icon
+      //     name="menu"
+      //     size={30}
+      //     type="entypo"
+      //     containerStyle={{ marginLeft: 10 }}
+      //     onPress={() => navigation.navigate('DrawerOpen')}
+      //   />
+      // ),
     }),
   },
 });

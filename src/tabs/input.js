@@ -21,15 +21,15 @@ const InputTab = StackNavigator({
     path: '/',
     navigationOptions: ({ navigation }) => ({
       title: '登入',
-      headerLeft: (
-        <Icon
-          name="menu"
-          size={30}
-          type="entypo"
-          containerStyle={{ marginLeft: 10 }}
-          onPress={() => navigation.navigate('DrawerOpen')}
-        />
-      ),
+      // headerLeft: (
+      //   <Icon
+      //     name="menu"
+      //     size={30}
+      //     type="entypo"
+      //     containerStyle={{ marginLeft: 10 }}
+      //     onPress={() => navigation.navigate('DrawerOpen')}
+      //   />
+      // ),
     }),
   },
   Input_Detail: {

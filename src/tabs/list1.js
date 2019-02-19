@@ -16,10 +16,10 @@ const ListsDetailTabView = ({ navigation }) => (
 
 const ListsTab = StackNavigator({
   Home: {
-    screen: ListsTabView,
+    screen: ListsDetailTabView,
     path: '/',
     navigationOptions: ({ navigation }) => ({
-      title: '總覽',
+      title: '詳情',
       // headerLeft: (
       //   <Icon
       //     name="menu"
