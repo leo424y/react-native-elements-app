@@ -25,10 +25,6 @@ class Icons extends Component {
     }
   }
 
-  _fetchData() {
-    return 
-  }
-
   _onRefresh = () => {
     this.setState({ refreshing: true });
     fetch('https://demo0195867.mockable.io/a.json')
