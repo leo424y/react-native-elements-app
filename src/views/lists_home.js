@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 import React, { Component } from 'react';
-import { FlatList, ActivityIndicator, View, ScrollView, StyleSheet, Image, ListView, Alert, AlertIOS } from 'react-native';
+import { ActivityIndicator, View, ScrollView, StyleSheet, Image, ListView, Alert, AlertIOS } from 'react-native';
 
 import {
   Text,
@@ -11,97 +11,19 @@ import {
   ListItem,
   Avatar,
 } from 'react-native-elements';
-import TouchableScale from 'react-native-touchable-scale';
 
 import colors from '../config/colors';
 
 const log = () => console.log('this is an example method');
 
-const phone_lists = [
-  {
-    name: '0988134234',
-    subtitle: '2019/01/22-19:00:20-19:00:25',
-  },
-  {
-    name: '0988134232',
-    subtitle: '2019/01/22-19:01:50-19:03:40',
-  },
-  {
-    name: '0988134232',
-    subtitle: '2019/01/22-19:01:50-19:03:40',
-  },
-  {
-    name: '0988134232',
-    subtitle: '2019/01/22-19:01:50-19:03:40',
-  },
-  {
-    name: '0988134232',
-    subtitle: '2019/01/22-19:01:50-19:03:40',
-  },
-  {
-    name: '0988134232',
-    subtitle: '2019/01/22-19:01:50-19:03:40',
-  },
-  {
-    name: '0988134232',
-    subtitle: '2019/01/22-19:01:50-19:03:40',
-  },
-  {
-    name: '0988134232',
-    subtitle: '2019/01/22-19:01:50-19:03:40',
-  },
-  {
-    name: '0988134232',
-    subtitle: '2019/01/22-19:01:50-19:03:40',
-  },
-  {
-    name: '0988134232',
-    subtitle: '2019/01/22-19:01:50-19:03:40',
-  },
-  {
-    name: '0988134232',
-    subtitle: '2019/01/22-19:01:50-19:03:40',
-  },
-  {
-    name: '0988134232',
-    subtitle: '2019/01/22-19:01:50-19:03:40',
-  },
-  {
-    name: '0988134232',
-    subtitle: '2019/01/22-19:01:50-19:03:40',
-  },
-  {
-    name: '0988134232',
-    subtitle: '2019/01/22-19:01:50-19:03:40',
-  },
-  {
-    name: '0988134232',
-    subtitle: '2019/01/22-19:01:50-19:03:40',
-  },  
-];
-
 class Icons extends Component {
-  // constructor() {
-  //   super();
-  //   const ds = new ListView.DataSource({
-  //     rowHasChanged: (r1, r2) => r1 !== r2,
-  //   });
-
-  //   this.state = {
-  //     selectedIndex: 0,
-  //   };
-
-  //   this.updateIndex = this.updateIndex.bind(this);
-  //   this.renderRow = this.renderRow.bind(this);
-  // }
-
   constructor(props) {
     super(props);
     this.state = { isLoading: true }
   }
 
   componentDidMount() {
-    return fetch('https://facebook.github.io/react-native/movies.json')
+    return fetch('https://demo0195867.mockable.io/a.json')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -149,11 +71,6 @@ class Icons extends Component {
     return (
       <ScrollView>
       <View style={{flex: 1, paddingTop:0}}>
-        {/* <FlatList
-          data={this.state.dataSource}
-          renderItem={({item}) => <Text>{item.title}, {item.releaseYear}</Text>}
-          keyExtractor={(item, index) => item.id}
-        /> */}
           <View style={styles.list}>
             {this.state.dataSource.map((l, i) => (
               <ListItem
@@ -175,29 +92,6 @@ class Icons extends Component {
         {/* <View style={styles.headerContainer}>
           <Text style={styles.heading}>總覽</Text>
         </View> */}
-        {/* 
-        <View style={styles.list}>
-          {phone_lists.map((l, i) => (
-            <ListItem
-              key={i}
-              onPress={()=>alert('請先輸入讀取碼')}
-              // onPress={()=>AlertIOS.prompt(
-              //   '請輸入讀取碼',
-              //   null,
-              //   text => console.log("You entered "+text)
-              // )}
-              title={l.name}
-              subtitle={l.subtitle}
-              chevron
-              bottomDivider
-            />
-          ))}
-        </View>   
-          <Card containerStyle={{ marginTop: 0, marginBottom: 0}}>
-              <Tile
-                width={310}
-              />
-          </Card> */}
       </ScrollView>
     );
   }
