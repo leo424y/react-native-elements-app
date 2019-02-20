@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 import React, { Component } from 'react';
-import { ActivityIndicator, View, ScrollView, StyleSheet, Image, ListView, Alert, AlertIOS } from 'react-native';
+import { RefreshControl, ActivityIndicator, View, ScrollView, StyleSheet, Image, ListView, Alert, AlertIOS } from 'react-native';
 
 import {
   Text,
@@ -19,21 +19,44 @@ const log = () => console.log('this is an example method');
 class Icons extends Component {
   constructor(props) {
     super(props);
-    this.state = { isLoading: true }
+    this.state = { 
+      isLoading: true,
+      refreshing: false,
+    }
+  }
+
+  _fetchData() {
+    return 
+  }
+
+  _onRefresh = () => {
+    this.setState({ refreshing: true });
+    fetch('https://demo0195867.mockable.io/a.json')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson.movies,
+        }, function () {
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+    .then(() => {
+      this.setState({ refreshing: false });
+    });
   }
 
   componentDidMount() {
     return fetch('https://demo0195867.mockable.io/a.json')
       .then((response) => response.json())
       .then((responseJson) => {
-
         this.setState({
           isLoading: false,
           dataSource: responseJson.movies,
         }, function () {
-
         });
-
       })
       .catch((error) => {
         console.error(error);
@@ -69,7 +92,14 @@ class Icons extends Component {
     }  
     
     return (
-      <ScrollView>
+      <ScrollView
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.refreshing}
+            onRefresh={this._onRefresh}
+          />
+        }
+      >
       <View style={{flex: 1, paddingTop:0}}>
           <View style={styles.list}>
             {this.state.dataSource.map((l, i) => (
