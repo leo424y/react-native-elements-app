@@ -25,18 +25,21 @@ class InputHome extends Component {
             containerStyle={[styles.inputContainerStyle]}
             placeholder="4位數字"
             ref={ref => (this.shakeInput2 = ref)}
-            errorMessage="必填"
+            // errorMessage="必填"
             label="舊讀取碼"
           />
           <Input
             containerStyle={[styles.inputContainerStyle]}
             placeholder="4位數字"
             ref={ref => (this.shakeInput = ref)}
-            errorMessage="必填"
+            // errorMessage="必填"
             label="新讀取碼"
           />
           <Button
             title="確定"
+            style={{
+              marginVertical: 30,
+            }}
             // onPress={() => this.shakeInput2 && this.shakeInput2.shake()}
           />
         </View>

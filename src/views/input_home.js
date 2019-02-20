@@ -20,86 +20,45 @@ class InputHome extends Component {
   render() {
     return (
       <ScrollView style={styles.container} keyboardShouldPersistTaps="handled">
-        <View style={styles.contentView}>
-          <View
-            style={{
-              backgroundColor: '#2F343B',
-              width: SCREEN_WIDTH,
-              alignItems: 'center',
+        <View style={{ alignItems: 'center', marginBottom: 16 }}>
+          <Input
+            label="帳號"
+            placeholder="test@mail.com"
+            // placeholderTextColor="black"
+            autoCapitalize="none"
+            autoCorrect={false}
+            keyboardAppearance="light"
+            keyboardType="email-address"
+            returnKeyType="next"
+            ref={input => (this.emailInput = input)}
+            onSubmitEditing={() => {
+              this.passwordInput.focus();
             }}
-          >
-            <Text
-              style={{
-                fontSize: 30,
-                marginVertical: 10,
-                fontWeight: '300',
-                marginTop: 10,
-                color: 'white',
-              }}
-            >
-              
-            </Text>
-            <View style={styles.overlay}>
-              <View style={styles.triangleLeft} />
-              <Input
-                inputContainerStyle={{
-                  borderWidth: 1,
-                  borderColor: 'white',
-                  borderLeftWidth: 0,
-                  height: 50,
-                  width: SCREEN_WIDTH - 80,
-                  backgroundColor: 'white',
-                }}
-                leftIcon={
-                  <MaterialIcon name="email-outline" color="black" size={25} />
-                }
-                placeholder="帳號"
-                placeholderTextColor="black"
-                autoCapitalize="none"
-                autoCorrect={false}
-                keyboardAppearance="light"
-                keyboardType="email-address"
-                returnKeyType="next"
-                ref={input => (this.emailInput = input)}
-                onSubmitEditing={() => {
-                  this.passwordInput.focus();
-                }}
-                blurOnSubmit={false}
-              />
-              <View style={styles.triangleRight} />
-            </View>
-            <View style={[styles.overlay, { marginBottom: 30, marginTop: 1 }]}>
-              <View style={styles.triangleLeft} />
-              <Input
-                inputContainerStyle={{
-                  borderWidth: 1,
-                  borderColor: 'white',
-                  borderLeftWidth: 0,
-                  height: 50,
-                  width: SCREEN_WIDTH - 80,
-                  backgroundColor: 'white',
-                }}
-                leftIcon={<SimpleIcon name="lock" color="black" size={25} />}
-                placeholder="密碼"
-                placeholderTextColor="black"
-                autoCapitalize="none"
-                keyboardAppearance="light"
-                secureTextEntry={true}
-                autoCorrect={false}
-                keyboardType="default"
-                returnKeyType="done"
-                ref={input => (this.passwordInput = input)}
-                blurOnSubmit={true}
-              />
-              <View style={styles.triangleRight} />
-            </View>
-            <Button
-              title="確定"
-              style={{
-                marginVertical: 30,
-              }}
-            />
-          </View>
+            blurOnSubmit={false}
+            containerStyle={[styles.inputContainerStyle]}
+          />
+          <Input
+            containerStyle={[styles.inputContainerStyle]}
+            label="密碼"
+            placeholder="****"
+            // placeholderTextColor="black"
+            autoCapitalize="none"
+            keyboardAppearance="light"
+            secureTextEntry={true}
+            autoCorrect={false}
+            keyboardType="default"
+            returnKeyType="done"
+            ref={input => (this.passwordInput = input)}
+            blurOnSubmit={true}
+          />
+          <Button
+            title="確定"
+            containerViewStyle={{ width: '100%', marginLeft: 0 }}
+            style={{
+              marginVertical: 30,
+            }}
+          // onPress={() => this.shakeInput2 && this.shakeInput2.shake()}
+          />
         </View>
       </ScrollView>
     );
