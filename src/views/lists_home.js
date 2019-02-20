@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet, Image, ListView, Alert, AlertIOS } from 'react-native';
+import { FlatList, ActivityIndicator, View, ScrollView, StyleSheet, Image, ListView, Alert, AlertIOS } from 'react-native';
 
 import {
   Text,
@@ -81,18 +81,41 @@ const phone_lists = [
 ];
 
 class Icons extends Component {
-  constructor() {
-    super();
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2,
-    });
+  // constructor() {
+  //   super();
+  //   const ds = new ListView.DataSource({
+  //     rowHasChanged: (r1, r2) => r1 !== r2,
+  //   });
 
-    this.state = {
-      selectedIndex: 0,
-    };
+  //   this.state = {
+  //     selectedIndex: 0,
+  //   };
 
-    this.updateIndex = this.updateIndex.bind(this);
-    this.renderRow = this.renderRow.bind(this);
+  //   this.updateIndex = this.updateIndex.bind(this);
+  //   this.renderRow = this.renderRow.bind(this);
+  // }
+
+  constructor(props) {
+    super(props);
+    this.state = { isLoading: true }
+  }
+
+  componentDidMount() {
+    return fetch('https://facebook.github.io/react-native/movies.json')
+      .then((response) => response.json())
+      .then((responseJson) => {
+
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson.movies,
+        }, function () {
+
+        });
+
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   updateIndex(selectedIndex) {
@@ -114,11 +137,45 @@ class Icons extends Component {
   render() {
     const { navigation } = this.props;
     const { selectedIndex } = this.state;
+
+    if (this.state.isLoading) {
+      return (
+        <View style={{ flex: 1, padding: 20 }}>
+          <ActivityIndicator />
+        </View>
+      )
+    }  
+    
     return (
       <ScrollView>
+      <View style={{flex: 1, paddingTop:0}}>
+        {/* <FlatList
+          data={this.state.dataSource}
+          renderItem={({item}) => <Text>{item.title}, {item.releaseYear}</Text>}
+          keyExtractor={(item, index) => item.id}
+        /> */}
+          <View style={styles.list}>
+            {this.state.dataSource.map((l, i) => (
+              <ListItem
+                key={i}
+                onPress={() => alert('請先輸入讀取碼')}
+                // onPress={()=>AlertIOS.prompt(
+                //   '請輸入讀取碼',
+                //   null,
+                //   text => console.log("You entered "+text)
+                // )}
+                title={l.title}
+                subtitle={l.releaseYear}
+                chevron
+                bottomDivider
+              />
+            ))}
+          </View>           
+      </View>
         {/* <View style={styles.headerContainer}>
           <Text style={styles.heading}>總覽</Text>
         </View> */}
+        {/* 
         <View style={styles.list}>
           {phone_lists.map((l, i) => (
             <ListItem
@@ -140,7 +197,7 @@ class Icons extends Component {
               <Tile
                 width={310}
               />
-          </Card>
+          </Card> */}
       </ScrollView>
     );
   }
