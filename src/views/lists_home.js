@@ -1,7 +1,13 @@
 import _ from 'lodash';
 
 import React, { Component } from 'react';
-import { RefreshControl, ActivityIndicator, View, ScrollView, StyleSheet, Image, ListView, Alert, AlertIOS } from 'react-native';
+import { 
+  RefreshControl, 
+  ActivityIndicator, 
+  View, ScrollView, 
+  StyleSheet, 
+  Image, ListView, Alert, AlertIOS 
+} from 'react-native';
 
 import {
   Text,
