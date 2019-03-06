@@ -24,9 +24,35 @@ import {
 
 import colors from '../config/colors';
 
-import { Permissions, Notifications } from 'expo';
+import { Permissions, Notifications, SecureStore} from 'expo';
 
 const log = () => console.log('this is an example method');
+
+const Stor = async (key: string, value?: Object) => {
+
+  let json = ''
+
+  if ('object' == typeof value) {
+    SecureStore.setItemAsync(key, JSON.stringify(value))
+  }
+  else {
+    json = await Expo.SecureStore.getItemAsync(key)
+    return json
+  }
+
+}
+
+let obj = {
+  something: 'hey there'
+}
+console.log(obj);
+
+Stor('some_key', obj) // Stores the object as a string.
+
+// let my_var = Stor('some_key') // Gets the stringified value out of storage.
+SecureStore.getItemAsync('some_key').then((data)=>{
+  console.log("Storage content:",data);
+});
 
 class Icons extends Component {
   constructor(props) {
