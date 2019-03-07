@@ -45,13 +45,13 @@ const Stor = async (key: string, value?: Object) => {
 let obj = {
   something: 'hey there'
 }
-console.log(obj);
+//console.log(obj);
 
 Stor('some_key', obj) // Stores the object as a string.
 
 // let my_var = Stor('some_key') // Gets the stringified value out of storage.
 SecureStore.getItemAsync('some_key').then((data)=>{
-  console.log("Storage content:",data);
+  //console.log("Storage content:",data);
 });
 
 class Icons extends Component {
@@ -62,7 +62,7 @@ class Icons extends Component {
       refreshing: false,
       token: null,
       notification: null,
-      title: 'Hello World',
+      title: '通知系統',
       body: '有新訊息！',
     }
   }
