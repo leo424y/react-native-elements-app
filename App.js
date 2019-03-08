@@ -1,7 +1,7 @@
 import React from 'react';
 import { registerRootComponent, AppLoading, Asset, Font } from 'expo';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
-import { View, Image, Dimensions } from 'react-native';
+import { View, Image, Dimensions, Platform, StatusBar, StyleSheet } from 'react-native';
 import { DrawerNavigator, DrawerItems } from 'react-navigation';
 
 import Login from './src/drawer/login';
@@ -33,10 +33,10 @@ const CustomDrawerContentComponent = props => (
 
 const MainRoot = DrawerNavigator(
   {
-    // Login: {
-    //   path: '/login',
-    //   screen: Login,
-    // },
+    Login: {
+      path: '/login',
+      screen: Login,
+    },
     // Lists: {
     //   path: '/lists',
     //   screen: Lists,
@@ -63,7 +63,7 @@ const MainRoot = DrawerNavigator(
     // },
   },
   {
-    initialRouteName: 'Components',
+    initialRouteName: 'Login',
     // initialRouteName: 'Lists',
     contentOptions: {
       activeTintColor: '#548ff7',
