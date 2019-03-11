@@ -62,7 +62,7 @@ export default class LoginScreen extends React.Component {
                 />
 
                 <Button title="Login" onPress={this.onLoginPress} />
-                {/* <Button title="Create account..." onPress={this.onCreateAccountPress} /> */}
+                <Button title="Create account..." onPress={this.onCreateAccountPress} />
                 <Button title="Forgot Password..." onPress={this.onForgotPasswordPress} />
             </View>
         );
