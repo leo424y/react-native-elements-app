@@ -17,6 +17,11 @@ export default class LoginScreen extends React.Component {
     onLoginPress = () => {
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(() => { }, (error) => { Alert.alert(error.message); });
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                console.log(user.uid);
+            }
+        }); 
     }
 
     onCreateAccountPress = () => {
