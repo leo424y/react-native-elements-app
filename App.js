@@ -45,10 +45,10 @@ const MainRoot = DrawerNavigator(
     //   path: '/profile',
     //   screen: Profile,
     // },
-    Components: {
-      path: '/components',
-      screen: Components,
-    },
+    // Components: {
+    //   path: '/components',
+    //   screen: Components,
+    // },
     // Ratings: {
     //   path: '/ratings',
     //   screen: Ratings,
