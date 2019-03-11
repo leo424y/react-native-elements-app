@@ -4,9 +4,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Colors from '../constants/Colors';
 import TestScreen from '../screens/TestScreen';
+import MainListScreen from '../views/lists_home';
 
 export default TabNavigator(
   {
+    MainList: {
+      screen: MainListScreen,
+    },
     Test: {
       screen: TestScreen,
     },
@@ -18,6 +22,11 @@ export default TabNavigator(
         let iconName;
         switch (routeName) {
           case 'Test':
+            iconName =
+              Platform.OS === 'ios'
+                ? `ios-information-circle${focused ? '' : '-outline'}`
+                : 'md-information-circle';
+          case 'MainList':
             iconName =
               Platform.OS === 'ios'
                 ? `ios-information-circle${focused ? '' : '-outline'}`

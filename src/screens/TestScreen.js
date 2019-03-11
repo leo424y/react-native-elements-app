@@ -66,12 +66,12 @@ export default class TestScreen extends React.Component {
 
         <Button title="Change Password" onPress={this.onChangePasswordPress} />
 
-        <TextInput style={styles.textInput} value={this.state.newEmail}
+        {/* <TextInput style={styles.textInput} value={this.state.newEmail}
           placeholder="New Email" autoCapitalize="none" keyboardType="email-address"
           onChangeText={(text) => { this.setState({newEmail: text}) }}
-        />
+        /> */}
 
-        <Button title="Change Email" onPress={this.onChangeEmailPress} />
+        {/* <Button title="Change Email" onPress={this.onChangeEmailPress} /> */}
 
       </ScrollView>
     );
