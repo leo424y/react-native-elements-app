@@ -63,7 +63,7 @@ class Icons extends Component {
       token: null,
       notification: null,
       title: '通知系統',
-      body: '有新訊息！',
+      body: '運作中，有新訊息！',
     }
   }
 
@@ -129,6 +129,11 @@ class Icons extends Component {
 
   componentDidMount() {
     this.registerForPushNotifications();
+
+    this.timeoutCheck = setTimeout(() => {
+    this.sendPushNotification();
+    console.log('I do not leak!');
+    }, 3000);
 
     return fetch('https://demo0195867.mockable.io/a.json')
       .then((response) => response.json())
