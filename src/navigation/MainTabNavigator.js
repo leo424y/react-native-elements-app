@@ -11,7 +11,7 @@ export default TabNavigator(
     MainList: {
       screen: MainListScreen,
     },
-    Test: {
+    Settings: {
       screen: TestScreen,
     },
   },
@@ -21,11 +21,11 @@ export default TabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         switch (routeName) {
-          case 'Test':
+          case 'Settings':
             iconName =
               Platform.OS === 'ios'
-                ? `ios-information-circle${focused ? '' : '-outline'}`
-                : 'md-information-circle';
+                ? `ios-settings${focused ? '' : '-outline'}`
+                : 'md-settings';
           case 'MainList':
             iconName =
               Platform.OS === 'ios'

@@ -181,7 +181,7 @@ class Icons extends Component {
           />
         }
       >
-      <View style={{flex: 1, paddingTop:0}}>
+      <View style={{flex: 1, paddingTop:60}}>
         <KeyboardAvoidingView style={styles.keyboard} behavior="position" hidden>
           <TextInput
             style={styles.input}
