@@ -10,6 +10,7 @@ import {
   TextInput,
   TouchableOpacity,
   KeyboardAvoidingView,
+  Platform,
   Image, ListView, Alert, AlertIOS 
 } from 'react-native';
 
@@ -131,8 +132,8 @@ class Icons extends Component {
     this.registerForPushNotifications();
 
     this.timeoutCheck = setTimeout(() => {
-    this.sendPushNotification();
-    console.log('I do not leak!');
+      this.sendPushNotification();
+      console.log('3 seconds!');
     }, 3000);
 
     return fetch('https://demo0195867.mockable.io/a.json')
@@ -171,7 +172,7 @@ class Icons extends Component {
 
     if (this.state.isLoading) {
       return (
-        <View style={{ flex: 1, padding: 20 }}>
+        <View style={{ flex: 1, padding: 20}}>
           <ActivityIndicator />
         </View>
       )
@@ -186,7 +187,7 @@ class Icons extends Component {
           />
         }
       >
-      <View style={{flex: 1, paddingTop:60}}>
+      <View style={{flex: 1, paddingTop:((Platform.OS === 'ios') ? 60 : 0)}}>
         <KeyboardAvoidingView style={styles.keyboard} behavior="position" hidden>
           <TextInput
             style={styles.input}
