@@ -110,12 +110,12 @@ class Icons extends Component {
 
   _onRefresh = () => {
     this.setState({ refreshing: true });
-    fetch('https://demo0195867.mockable.io/a.json')
+    fetch('https://db9d7e5d.ngrok.io/calls.json')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
           isLoading: false,
-          dataSource: responseJson.movies,
+          dataSource: responseJson,
         }, function () {
         });
       })
@@ -132,8 +132,24 @@ class Icons extends Component {
   //   clearInterval(this.interval);
   // }
 
+  reloadCalls() {
+    return fetch('https://db9d7e5d.ngrok.io/calls.json')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.sendPushNotification();
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson,
+        }, function () {
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });    
+  }
+  
   componentDidMount() {
-    this.interval = setInterval(() =>       this.sendPushNotification()    , 5000);
+    this.interval = setInterval(() =>       this.reloadCalls()    , 5000);
 
     this.registerForPushNotifications();
 
@@ -142,12 +158,15 @@ class Icons extends Component {
     //   console.log('3 seconds!');
     // }, 3000);
 
-    return fetch('https://demo0195867.mockable.io/a.json')
+    // https://db9d7e5d.ngrok.io/calls.json
+    // https://demo0195867.mockable.io/a.json
+
+    return fetch('https://db9d7e5d.ngrok.io/calls.json')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
           isLoading: false,
-          dataSource: responseJson.movies,
+          dataSource: responseJson,
         }, function () {
         });
       })
@@ -243,8 +262,8 @@ class Icons extends Component {
                 //   null,
                 //   text => console.log("You entered "+text)
                 // )}
-                title={l.title}
-                subtitle={l.releaseYear}
+                title={l.num}
+                subtitle={l.stamp}
                 chevron
                 bottomDivider
               />
