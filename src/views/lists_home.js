@@ -128,13 +128,19 @@ class Icons extends Component {
     });
   }
 
+  // componentWillUnmount() {
+  //   clearInterval(this.interval);
+  // }
+
   componentDidMount() {
+    this.interval = setInterval(() =>       this.sendPushNotification()    , 5000);
+
     this.registerForPushNotifications();
 
-    this.timeoutCheck = setTimeout(() => {
-      this.sendPushNotification();
-      console.log('3 seconds!');
-    }, 3000);
+    // this.timeoutCheck = setTimeout(() => {
+    //   this.sendPushNotification();
+    //   console.log('3 seconds!');
+    // }, 3000);
 
     return fetch('https://demo0195867.mockable.io/a.json')
       .then((response) => response.json())
