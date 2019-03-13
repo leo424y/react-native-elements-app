@@ -25,6 +25,8 @@ import {
 
 import colors from '../config/colors';
 
+import {Crypt, keyManager, RSA} from 'hybrid-crypto-js';
+
 import { Permissions, Notifications, SecureStore, Constants} from 'expo';
 
 const log = () => console.log('this is an example method');
@@ -151,6 +153,45 @@ class Icons extends Component {
         console.error(error);
       });    
   }
+
+  enc(message){
+    // Basic initialization
+    var crypt = new Crypt();
+    var rsa = new RSA();
+
+    // Generate RSA key pair, defaults on 4096 bit key
+    rsa.generateKeypair(function(keypair) {
+
+      // Callback function receives new keypair as a first argument
+      var publicKey = keypair.publicKey;
+      var privateKey = keypair.privateKey;
+      // Increase amount of entropy
+      
+      // var message = 'Hello world!';
+      console.log(message)
+
+      // Encryption with one public RSA key
+      var encrypted = crypt.encrypt(publicKey, message);    
+      var decrypted = crypt.decrypt(privateKey, encrypted);
+
+      // Get decrypted message
+      var message_de = decrypted.message;  
+      console.log(message_de)
+      Alert.alert(
+        'Details',
+        message_de,
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed')},
+          {
+            text: 'Cancel',
+            onPress: () => console.log('Cancel Pressed'),
+            style: 'cancel',
+          },
+        ],
+        {cancelable: false},
+      )
+    }, 1024);
+  }
   
   componentDidMount() {
     this.interval = setInterval(() => this.reloadCalls(), Constants.manifest.extra.reload_timer);
@@ -260,7 +301,7 @@ class Icons extends Component {
             {this.state.dataSource.map((l, i) => (
               <ListItem
                 key={i}
-                onPress={() => alert(l.content)}
+                onPress={() => this.enc(l.content)}
                 // onPress={()=>AlertIOS.prompt(
                 //   '請輸入讀取碼',
                 //   null,

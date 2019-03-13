@@ -11,6 +11,7 @@
     "expo": "^31.0.2",
     "expo-jwt": "^1.1.1",
     "firebase": "^5.8.6",
+    "hybrid-crypto-js": "^0.1.6",
     "keypair": "^1.0.1",
     "lodash": "^4.17.4",
     "react": "16.5.0",
