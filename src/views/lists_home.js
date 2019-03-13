@@ -260,7 +260,7 @@ class Icons extends Component {
             {this.state.dataSource.map((l, i) => (
               <ListItem
                 key={i}
-                onPress={() => alert('請先輸入讀取碼')}
+                onPress={() => alert(l.content)}
                 // onPress={()=>AlertIOS.prompt(
                 //   '請輸入讀取碼',
                 //   null,
