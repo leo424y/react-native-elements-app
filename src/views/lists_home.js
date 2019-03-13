@@ -64,7 +64,7 @@ class Icons extends Component {
       token: null,
       notification: null,
       title: '通知系統',
-      body: '運作中，有新訊息！',
+      body: '有新資料！',
     }
   }
 
@@ -133,10 +133,15 @@ class Icons extends Component {
   // }
 
   reloadCalls() {
+    const last_count = this.state.dataSource.length
+    console.log(last_count)
     return fetch('https://db9d7e5d.ngrok.io/calls.json')
       .then((response) => response.json())
       .then((responseJson) => {
-        this.sendPushNotification();
+        console.log(responseJson.length);
+        if (responseJson.length > last_count){
+          this.sendPushNotification();
+        }
         this.setState({
           isLoading: false,
           dataSource: responseJson,
