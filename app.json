@@ -19,6 +19,10 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
+    },
+    "extra": {
+      "server_host": "https://db9d7e5d.ngrok.io/calls",
+      "reload_timer": 10000
     }
   }
 }

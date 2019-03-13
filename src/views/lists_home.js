@@ -25,7 +25,7 @@ import {
 
 import colors from '../config/colors';
 
-import { Permissions, Notifications, SecureStore} from 'expo';
+import { Permissions, Notifications, SecureStore, Constants} from 'expo';
 
 const log = () => console.log('this is an example method');
 
@@ -110,7 +110,7 @@ class Icons extends Component {
 
   _onRefresh = () => {
     this.setState({ refreshing: true });
-    fetch('https://db9d7e5d.ngrok.io/calls.json')
+    fetch(Constants.manifest.extra.server_host)
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
@@ -124,7 +124,6 @@ class Icons extends Component {
       })
     .then(() => {
       this.setState({ refreshing: false });
-      this.sendPushNotification();
     });
   }
 
@@ -135,7 +134,7 @@ class Icons extends Component {
   reloadCalls() {
     const last_count = this.state.dataSource.length
     console.log(last_count)
-    return fetch('https://db9d7e5d.ngrok.io/calls.json')
+    return fetch(Constants.manifest.extra.server_host)
       .then((response) => response.json())
       .then((responseJson) => {
         console.log(responseJson.length);
@@ -154,7 +153,7 @@ class Icons extends Component {
   }
   
   componentDidMount() {
-    this.interval = setInterval(() =>       this.reloadCalls()    , 5000);
+    this.interval = setInterval(() => this.reloadCalls(), Constants.manifest.extra.reload_timer);
 
     this.registerForPushNotifications();
 
@@ -166,7 +165,7 @@ class Icons extends Component {
     // https://db9d7e5d.ngrok.io/calls.json
     // https://demo0195867.mockable.io/a.json
 
-    return fetch('https://db9d7e5d.ngrok.io/calls.json')
+    return fetch( Constants.manifest.extra.server_host)
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
