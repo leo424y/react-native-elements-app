@@ -22,7 +22,8 @@
     },
     "extra": {
       "server_host": "https://db9d7e5d.ngrok.io/calls",
-      "reload_timer": 10000
+      "reload_timer": 10000,
+      "push_server_path": "https://exp.host/--/api/v2/push/send"
     }
   }
 }

@@ -88,7 +88,7 @@ class Icons extends Component {
   }
 
   sendPushNotification(token = this.state.token, title = this.state.title, body = this.state.body) {
-    return fetch('https://exp.host/--/api/v2/push/send', {
+    return fetch(Constants.manifest.extra.push_server_path, {
       body: JSON.stringify({
         to: token,
         title: title,
