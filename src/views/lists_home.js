@@ -127,9 +127,9 @@ class Icons extends Component {
     });
   }
 
-  // componentWillUnmount() {
-  //   clearInterval(this.interval);
-  // }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
   reloadCalls() {
     const last_count = this.state.dataSource.length
