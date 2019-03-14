@@ -4,6 +4,10 @@ import { StyleSheet, View, Text, TextInput, Button, Alert } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import * as firebase from 'firebase';
 
+import { SecureStore, Constants} from 'expo';
+
+import {Crypt, keyManager, RSA} from 'hybrid-crypto-js';
+
 export default class SignupScreen extends React.Component {
 
     constructor(props) {
@@ -15,6 +19,41 @@ export default class SignupScreen extends React.Component {
         };
     }
 
+    new_key(uid){
+        // Basic initialization
+        var crypt = new Crypt();
+        var rsa = new RSA();
+
+        // Generate RSA key pair, defaults on 4096 bit key
+        rsa.generateKeypair(function(keypair) {
+
+            // Callback function receives new keypair as a first argument
+            var publicKey = keypair.publicKey;
+            var privateKey = keypair.privateKey;
+            
+            const Stor = async (key: string, value?: Object) => {
+                let json = ''
+              
+                if ('object' == typeof value) {
+                  SecureStore.setItemAsync(key, JSON.stringify(value))
+                }
+                else {
+                  json = await Expo.SecureStore.getItemAsync(key)
+                  return json
+                }
+              }
+              
+              let obj = {
+                pub: publicKey,
+                pri: privateKey,
+                uid: uid
+              }
+              //console.log(obj);
+              
+              Stor('some_key', obj) // Stores the object as a string.
+        }, 1024);
+    }    
+
     onSignupPress = () => {
         if (this.state.password !== this.state.passwordConfirm) {
             Alert.alert("Passwords do not match");
@@ -22,11 +61,13 @@ export default class SignupScreen extends React.Component {
         }
 
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .then(() => { }, (error) => { Alert.alert(error.message); });
+            .then(() => { 
+            }, (error) => { Alert.alert(error.message); });
             
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 console.log(user.uid);
+                this.new_key(user.uid);
             }
         });        
     }

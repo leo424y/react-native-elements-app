@@ -31,32 +31,6 @@ import { Permissions, Notifications, SecureStore, Constants} from 'expo';
 
 const log = () => console.log('this is an example method');
 
-const Stor = async (key: string, value?: Object) => {
-
-  let json = ''
-
-  if ('object' == typeof value) {
-    SecureStore.setItemAsync(key, JSON.stringify(value))
-  }
-  else {
-    json = await Expo.SecureStore.getItemAsync(key)
-    return json
-  }
-
-}
-
-let obj = {
-  something: 'hey there'
-}
-//console.log(obj);
-
-Stor('some_key', obj) // Stores the object as a string.
-
-// let my_var = Stor('some_key') // Gets the stringified value out of storage.
-SecureStore.getItemAsync('some_key').then((data)=>{
-  //console.log("Storage content:",data);
-});
-
 class Icons extends Component {
   constructor(props) {
     super(props);
@@ -155,42 +129,22 @@ class Icons extends Component {
   }
 
   enc(message){
-    // Basic initialization
-    var crypt = new Crypt();
-    var rsa = new RSA();
-
-    // Generate RSA key pair, defaults on 4096 bit key
-    rsa.generateKeypair(function(keypair) {
-
-      // Callback function receives new keypair as a first argument
-      var publicKey = keypair.publicKey;
-      var privateKey = keypair.privateKey;
-      // Increase amount of entropy
-      
-      // var message = 'Hello world!';
-      console.log(message)
-
-      // Encryption with one public RSA key
-      var encrypted = crypt.encrypt(publicKey, message);    
-      var decrypted = crypt.decrypt(privateKey, encrypted);
-
-      // Get decrypted message
-      var message_de = decrypted.message;  
-      console.log(message_de)
-      Alert.alert(
-        'Details',
-        message_de,
-        [
-          {text: 'OK', onPress: () => console.log('OK Pressed')},
-          {
-            text: 'Cancel',
-            onPress: () => console.log('Cancel Pressed'),
-            style: 'cancel',
-          },
-        ],
-        {cancelable: false},
-      )
-    }, 1024);
+    SecureStore.getItemAsync('some_key').then((data)=>{
+      console.log("Storage content:", data);
+    });
+    Alert.alert(
+      'Details',
+      message,
+      [
+        {text: 'OK', onPress: () => console.log('OK Pressed')},
+        // {
+        //   text: 'Cancel',
+        //   onPress: () => console.log('Cancel Pressed'),
+        //   style: 'cancel',
+        // },
+      ],
+      {cancelable: false},
+    )
   }
   
   componentDidMount() {
